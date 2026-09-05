@@ -16,14 +16,11 @@ WORKDIR /var/www/html
 
 COPY . .
 
-RUN rm -f .env
-
 RUN composer install --no-dev --optimize-autoloader
 
 RUN npm install && npm run build
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-RUN chown -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /etc/apache2/sites-available/000-default.conf
 
