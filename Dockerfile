@@ -21,10 +21,13 @@ RUN composer install --no-dev --optimize-autoloader
 RUN npm install && npm run build
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /etc/apache2/sites-available/000-default.conf
 
 RUN sed -i 's|<Directory /var/www/>|<Directory /var/www/html/public>|' /etc/apache2/apache2.conf
+
+RUN php artisan config:clear
 
 EXPOSE 80
 
