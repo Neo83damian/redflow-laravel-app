@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     nodejs \
     npm \
-    && docker-php-ext-install pdo pdo_pgsql zip \
+    && docker-php-ext-install pdo pdo_mysql zip \
     && a2dismod mpm_event mpm_worker \
     && a2enmod mpm_prefork rewrite
 
