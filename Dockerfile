@@ -27,8 +27,6 @@ RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /et
 
 RUN sed -i 's|<Directory /var/www/>|<Directory /var/www/html/public>|' /etc/apache2/apache2.conf
 
-RUN php artisan config:clear
-
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+CMD php artisan config:clear && apache2-foreground
