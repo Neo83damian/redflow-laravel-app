@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>REDFLOW - Blood Types Digital Masterlist</title>
 
